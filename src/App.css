@@ -7,14 +7,26 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+.IJ-Logo {
+  display: inline-flex;
+  height: 60px;
+}
+.IJ-Logo img {
+  height: 100%;
+}
+.IJ-Logo img:first-child {
+  margin-right: 15px;
+}
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: #312195;
+  background-image: linear-gradient(120deg,#862cc6,#312195);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,8 +36,18 @@
   color: white;
 }
 
+.App-header h2 {
+  font-weight: 400;
+  margin: 20px 0 5px;
+}
+.App-header p {
+  margin: 5px 0;
+  line-height: 1.75;
+}
 .App-link {
-  color: #61dafb;
+  /* color: #61dafb; */
+  color: #fff;
+  margin-top: 5px;
 }
 
 @keyframes App-logo-spin {

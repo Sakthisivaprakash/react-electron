@@ -2,6 +2,9 @@
   "name": "react-electron",
   "version": "0.1.0",
   "private": true,
+  "productName": "Infinijith Welcome Card",
+  "main": "public/main.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -11,11 +14,18 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "electron": "^23.1.1",
+    "electron-builder": "^23.6.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set BROWSER=none&& react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",  
+    "start-electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "package": "electron-builder build --win -c.extraMetadata.main=build/main.js --publish never",
+    "publish": "electron-builder build --win --publish always"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +44,45 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "build": {
+    "appId": "com.infinijith.about",
+    "copyright": "Copyright infinijith.com",
+    "publish": {
+      "provider": "github",
+      "private": false,
+      "owner": "Infinijith Apps amd Technologies"
+    },
+    "mac": {
+        "publish": {
+            "provider": "github",
+            "owner": "Infinijith Apps amd Technologies",
+            "repo": "Repository Name",
+            "private": false,
+            "token": ""
+        }
+    },
+    "win": {
+        "publish": {
+            "provider": "github",
+            "owner": "Infinijith Apps amd Technologies",
+            "repo": "Repository Name",
+            "private": false,
+            "token": ""
+        },
+        "publisherName": "infinijith"
+    },
+    "linux": {
+      "category": "Utility"
+    },
+    "files": [
+        "build/**/*",
+        "node_modules/**/*"
+    ],
+    "nsis": {
+      "installerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "deleteAppDataOnUninstall": true
+    }
   }
 }
